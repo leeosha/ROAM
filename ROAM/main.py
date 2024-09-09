@@ -393,9 +393,8 @@ with ctx.scope():
             # 过滤theta<=0的脏数据
             if record[5] <= 0:
                 continue
-            # idx放在了0位置，之后跟odps表中的列顺序一致，分别为alpha,sigma,theta,priority,demand_pv,uvsupply,frequency,batch_id,price,penality,eta,zeta,target_roi_lower_bound,roi_coeff
-            target_roi_uppper_bound = 20
-            res[record[0]] = np.asarray([idx] + record[3:17] + [target_roi_uppper_bound])
+            # idx放在了0位置，之后跟odps表中的列顺序一致，分别为alpha,sigma,theta,priority,demand_pv,uvsupply,frequency,batch_id,price,penality,eta,zeta,target_roi_lower_bound,target_roi_upper_bound,roi_coeff
+            res[record[0]] = np.asarray([idx] + record[3:18])
             # 数据修正，如果priority<0则定义priority=1
             res[record[0]][6] = 1 if res[record[0]][6] < 0 else res[record[0]][6]
             # 将idx放入demand_set
