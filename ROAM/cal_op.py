@@ -17,11 +17,11 @@ def CalculateOpt(roam_param_array, scores, ctrs, cvrs, cpcs, prices, beta):
     eta = roam_param_array[:, 11]
     zeta = roam_param_array[:, 12]
     # pv 预估roi和真实累计roi的比值系数
-    roi_coeff = roam_param_array[:, 14]
+    roi_coeff = roam_param_array[:, 15]
     # lower bound
     roi_lb = roam_param_array[:,13]*roi_coeff
     # upper bound
-    roi_ub = roam_param_array[:,15]*roi_coeff
+    roi_ub = roam_param_array[:,14]*roi_coeff
     theta = roam_param_array[:, 3]
     priority = roam_param_array[:, 4]
     cij = ctrs*cpcs
@@ -67,11 +67,11 @@ def CalculateBeta(roam_param_array , scores, ctrs, cvrs, cpcs, prices):
         eta = roam_param_array[j][11]
         zeta = roam_param_array[j][12]
         # pv 预估roi和真实累计roi的比值系数
-        roi_coeff = roam_param_array[j][14]
+        roi_coeff = roam_param_array[j][15]
         # lower bound
         roi_lb = roam_param_array[j][13] * roi_coeff
         # upper bound
-        roi_ub = roam_param_array[j][15] * roi_coeff
+        roi_ub = roam_param_array[j][14] * roi_coeff
         cij = ctr * cpc
         gij = ctr * cvr * price
         # a = theta * (1.0 + (score- ctr*cpc*alpha)/ priority)
@@ -99,11 +99,11 @@ def update_grad(roam_param_array, cost, gmv, alpha_grads , eta_grads, zeta_grads
     gmv[indexes] += xijs * si * ctrs * cvrs * prices
     alpha_grads[indexes] += si * ctrs *ctrs * cpcs * cpcs
     # pv 预估roi和真实累计roi的比值系数
-    roi_coeff = roam_param_array[:, 14]
+    roi_coeff = roam_param_array[:, 15]
     # lower bound
     roi_lb = roam_param_array[:, 13] * roi_coeff
     # upper bound
-    roi_ub = roam_param_array[:, 15] * roi_coeff
+    roi_ub = roam_param_array[:, 14] * roi_coeff
     cij = xijs * si * ctrs * cpcs
     gij = xijs * si * ctrs * cvrs * prices
 
@@ -129,11 +129,11 @@ def CalculateSigma(roam_param_array, beta, current_batch, scores, ctrs, cvrs, cp
     eta = roam_param_array[:, 11]
     zeta = roam_param_array[:, 12]
     # pv 预估roi和真实累计roi的比值系数
-    roi_coeff = roam_param_array[:, 14]
+    roi_coeff = roam_param_array[:, 15]
     # lower bound
     roi_lb = roam_param_array[:, 13] * roi_coeff
     # upper bound
-    roi_ub = roam_param_array[:, 15] * roi_coeff
+    roi_ub = roam_param_array[:, 14] * roi_coeff
     cij = ctrs * cpcs
     gij = ctrs * cvrs * prices
 
