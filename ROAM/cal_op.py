@@ -33,6 +33,7 @@ def CalculateOpt(roam_param_array, scores, ctrs, cvrs, cpcs, prices, beta):
     #     print("xij:", xij_array,", theta:",theta,",scores:",scores,",alpha:",alpha,",eta:",eta,",zeta:",zeta, ",ctrs*cpcs*alpha:",ctrs*cpcs*alpha,",roi_related:",eta*(roi_lb*cij - gij) + zeta*(gij - roi_ub*cij),",beta:",beta)
     return np.maximum(0.0,xij_array)
 
+# solve x from problems like ：max(8−x,0)+max(272−x,0)+max(−100−x,0)=180
 def solve_max(coef, y):
     solutions = []
     sum_cons = 0.0
