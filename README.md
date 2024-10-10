@@ -39,13 +39,13 @@
         sample_hash_id   STRING,
         supply_params    STRING COMMENT 'Traffic constraint parameter si, which is the node capacity: request_num.',
 
-        ad_demand_ids    STRING COMMENT '广告id,hash之后的。逗号分割',
-        ad_demand_freqs   STRING COMMENT '频控信息。逗号分割',
-        ad_demand_scores STRING COMMENT '收益分数。逗号分割',
-        ad_demand_ctrs   string comment '逗号分割',
-        ad_demand_cvrs   string comment '逗号分割',
-        ad_demand_cpcs   string comment '逗号分割',
-        ad_demand_prices string comment '逗号分割'
+        ad_demand_ids    STRING COMMENT 'Ad ID, after hashing. Comma-separated.',
+        ad_demand_freqs   STRING COMMENT 'Frequency control information. Comma-separated.',
+        ad_demand_scores STRING COMMENT 'Revenue scores. Comma-separated.',
+        ad_demand_ctrs   string comment 'Comma-separated.',
+        ad_demand_cvrs   string comment 'Comma-separated.',
+        ad_demand_cpcs   string comment 'Comma-separated.',
+        ad_demand_prices string comment 'Comma-separated.'
     );
 
 
