@@ -14,7 +14,7 @@
 
 ### input format：
 
-(1)demand table：
+* demand table：
 
     CREATE TABLE IF NOT EXISTS trip_ad_roam_demand
     
