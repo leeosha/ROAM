@@ -32,12 +32,12 @@
         roi_coeff        double
     );
 
-(2)supply table：每个请求对应的订单列表 (邻接表形式)
+(2)supply table：Order list corresponding to each request (in adjacency list format)
 
     create table if not exists trip_ad_roam_supply(
-        sample_id        STRING COMMENT '样本id：用于在线索引用的hash值，sparse结构',
+        sample_id        STRING COMMENT 'Sample ID: A hash value used for referencing in the clues, in a sparse structure.',
         sample_hash_id   STRING,
-        supply_params    STRING COMMENT '流量约束参数si,即节点容量：request_num',
+        supply_params    STRING COMMENT 'Traffic constraint parameter si, which is the node capacity: request_num.',
 
         ad_demand_ids    STRING COMMENT '广告id,hash之后的。逗号分割',
         ad_demand_freqs   STRING COMMENT '频控信息。逗号分割',
