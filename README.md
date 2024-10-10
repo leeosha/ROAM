@@ -12,6 +12,8 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 
 ## Installation
 
+* xdl
+
 ## Usage
 
 ### input format：
