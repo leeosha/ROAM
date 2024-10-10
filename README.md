@@ -1,4 +1,4 @@
-#ROI Constrained Optimal Online Allocation in Sponsored Search
+# ROI Constrained Optimal Online Allocation in Sponsored Search
 
 
 ## Description
