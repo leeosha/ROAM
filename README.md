@@ -12,7 +12,7 @@
 
 ## Usage
 
-1.input format：
+### input format：
 
 (1)demand table：
 
@@ -86,7 +86,7 @@
     );
 
 
-2.output format：
+### output format：
 
 (1)model table:
 
