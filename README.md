@@ -58,7 +58,7 @@
         
     );
 
-(2)supply table：Order list corresponding to each request (in adjacency list format)
+* supply table：Order list corresponding to each request (in adjacency list format)
 
     create table if not exists trip_ad_roam_supply(
     
@@ -88,7 +88,7 @@
 
 ### output format：
 
-(1)model table:
+* model table:
 
     CREATE TABLE IF NOT EXISTS trip_ad_roam_output
     
