@@ -4,9 +4,9 @@
 ## Description
 
 ## Table of Contents
-- [Installation]
-- [Usage]
-- [Feature]
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Feature](#Feature)
 
 ## Installation
 
