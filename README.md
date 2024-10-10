@@ -3,6 +3,8 @@
 
 ## Description
 
+Sponsored search is crucial for e-commerce revenue, requiring a balance between maximizing platform revenue and maintaining user experience and advertiser utility. This paper introduces ROAM, a ROI-constrained allocation model that formulates the allocation problem as a constrained optimization task. It aims to maximize revenue while minimizing ad impressions, adhering to campaign budgets and ROI constraints. Utilizing a scalable iterative optimization algorithm within a parameter server framework, ROAM generates efficient allocation plans. Experiments on real-world data show significant improvements in both platform revenue and advertiser ROI.
+
 ## Table of Contents
 - [Installation](#Installation)
 - [Usage](#Usage)    
