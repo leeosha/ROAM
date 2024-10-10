@@ -5,7 +5,12 @@
 
 ## Table of Contents
 - [Installation](#Installation)
-- [Usage](#Usage)
+- [Usage](#Usage)    
+- [Feature](#Feature)
+
+## Installation
+
+## Usage
 
 1.input format：
 
@@ -99,9 +104,4 @@
         zeta             double
         
     );
-    
-- [Feature](#Feature)
-
-## Installation
-
 
