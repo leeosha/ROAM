@@ -121,9 +121,15 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 ### format
 
 column[0]: user_id. int type
+
 column[1]: query_id. int type
+
 column[2]: The source of each sample(0:advertising. 1:organic). list type
+
 column[3]: The label of each sample. list type
+
 column[4:]: the side info [itemID, categoryID, brandID, vendorID, priceID, display_count, click_count, budget and min_ROI] of each sample. list type
+
 column[5]: user_category_id. int type
+
 column[6]: timestamp. int type
