@@ -9,6 +9,7 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 - [Installation](#Installation)
 - [Usage](#Usage)    
 - [DataSet](#DataSet)
+- [Note](#Note)
 
 ## Installation
 
@@ -134,6 +135,6 @@ column[5]: user_category_id. int type
 
 column[6]: timestamp. int type
 
-Note
+## Note
 
 This is a repository accompanying the paper titled "ROI Constrained Optimal Online Allocation in Sponsored Search".
