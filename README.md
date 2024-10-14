@@ -8,7 +8,7 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 ## Table of Contents
 - [Installation](#Installation)
 - [Usage](#Usage)    
-- [Feature](#Feature)
+- [DataSet](#DataSet)
 
 ## Installation
 
@@ -111,3 +111,19 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
         
     );
 
+##DataSet
+### instuction 
+
+通过百度网盘分享的文件：数据集
+链接：https://pan.baidu.com/s/1othj1qrTFBR6nCNd-Ogjlw?pwd=tx6f 
+提取码：tx6f
+
+### format
+
+column[0]: user_id. int type
+column[1]: query_id. int type
+column[2]: The source of each sample(0:advertising. 1:organic). list type
+column[3]: The label of each sample. list type
+column[4:]: the side info [itemID, categoryID, brandID, vendorID, priceID, display_count, click_count, budget and min_ROI] of each sample. list type
+column[5]: user_category_id. int type
+column[6]: timestamp. int type
