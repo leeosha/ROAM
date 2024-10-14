@@ -133,3 +133,7 @@ column[4:]: the side info [itemID, categoryID, brandID, vendorID, priceID, displ
 column[5]: user_category_id. int type
 
 column[6]: timestamp. int type
+
+Note
+
+This is a repository accompanying the paper titled "ROI Constrained Optimal Online Allocation in Sponsored Search".
