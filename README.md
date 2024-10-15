@@ -1,153 +1,80 @@
-# ROAM : ROI constrained Optimal Allocation Model
-
+# ROAM: ROI-constrained Optimal Allocation Model
 
 ## Description
 
-Sponsored search is crucial for e-commerce revenue, requiring a balance between maximizing platform revenue and maintaining user experience and advertiser utility. This paper introduces ROAM, a ROI-constrained allocation model that formulates the allocation problem as a constrained optimization task. It aims to maximize revenue while minimizing ad impressions, adhering to campaign budgets and ROI constraints. Utilizing a scalable iterative optimization algorithm within a parameter server framework, ROAM generates efficient allocation plans. Experiments on real-world data show significant improvements in both platform revenue and advertiser ROI.
+Sponsored search is a critical component of e-commerce revenue, requiring a delicate balance between maximizing platform revenue and maintaining user experience and advertiser utility. This repository introduces ROAM, a ROI-constrained allocation model that formulates the allocation problem as a constrained optimization task. ROAM aims to maximize revenue while minimizing ad impressions, adhering to campaign budgets and ROI constraints. By utilizing a scalable iterative optimization algorithm within a parameter server framework, ROAM generates efficient allocation plans. Experiments conducted on real-world data demonstrate significant improvements in both platform revenue and advertiser ROI.
 
 ## Table of Contents
-- [Installation](#Installation)
-- [Usage](#Usage)    
-- [DataSet](#DataSet)
-- [Note](#Note)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dataset](#dataset)
+- [Note](#note)
 
 ## Installation
 
-* xdl
+To use ROAM, you'll need to install the following dependencies:
+
+* XDL (X-DeepLearning)
   
-https://github.com/alibaba/x-deeplearning
+  For installation instructions, visit: https://github.com/alibaba/x-deeplearning
 
-* tensorflow
+* TensorFlow
 
-https://github.com/tensorflow/tensorflow
+  For installation instructions, visit: https://github.com/tensorflow/tensorflow
 
 ## Usage
 
-### run code
+### Running the Code
 
-* Please install related according to installation
-* dataset format according to Dataset
-* Run the main.py 
+1. Install the required dependencies as per the installation instructions.
+2. Prepare your dataset according to the format specified in the [Dataset](#dataset) section.
+3. Execute `main.py` to run the model.
 
+### Input Format
 
-### input format：
+ROAM requires two input tables:
 
-* demand table：
+1. Demand Table (`trip_ad_roam_demand`):
+   Contains information about advertising demands, including demand IDs, priorities, volumes, and ROI constraints.
 
-    CREATE TABLE IF NOT EXISTS trip_ad_roam_demand
-    
-    (
-    
-        demand_hash_id   BIGINT COMMENT 'murmurhash(demandid)',
-        
-        demand_id        string,
-        
-        demand_name      string,
-        
-        alpha            DOUBLE comment 'init with 0',
-        
-        sigma            DOUBLE comment 'init with 0',
-        
-        theta            DOUBLE comment 'demand_volume/supply_volume',
-        
-        priority         DOUBLE,
-        
-        demand_pv        DOUBLE,
-        
-        uvsupply         DOUBLE,
-        
-        frequency        DOUBLE,
-        
-        batch_id         DOUBLE,
-        
-        price            DOUBLE,
-        
-        penality         DOUBLE,
-        
-        eta              double comment 'init with 0',
-        
-        zeta             double comment 'init with 0',
-        
-        target_roi_lower_bound       double,
-        
-        target_roi_upper_bound       double,
-        
-        roi_coeff        double
-        
-    );
+2. Supply Table (`trip_ad_roam_supply`):
+   Represents the order list corresponding to each request in an adjacency list format, including sample IDs, traffic constraints, and ad-related information.
 
-* supply table：Order list corresponding to each request (in adjacency list format)
+For detailed schema information, please refer to the SQL CREATE TABLE statements in the original README.
 
-    create table if not exists trip_ad_roam_supply(
-    
-        sample_id        STRING COMMENT 'Sample ID: A hash value used for referencing in the clues, in a sparse structure.',
-        
-        sample_hash_id   STRING,
-        
-        supply_params    STRING COMMENT 'Traffic constraint parameter si, which is the node capacity: request_num.',
-        
+### Output Format
 
-        ad_demand_ids    STRING COMMENT 'Ad ID, after hashing. Comma-separated.',
-        
-        ad_demand_freqs   STRING COMMENT 'Frequency control information. Comma-separated.',
-        
-        ad_demand_scores STRING COMMENT 'Revenue scores. Comma-separated.',
-        
-        ad_demand_ctrs   string comment 'Comma-separated.',
-        
-        ad_demand_cvrs   string comment 'Comma-separated.',
-        
-        ad_demand_cpcs   string comment 'Comma-separated.',
-        
-        ad_demand_prices string comment 'Comma-separated.'
-        
-    );
+The model outputs its results to the `trip_ad_roam_output` table, which includes the following columns:
 
+- `demand_hash_id`: Hashed demand ID
+- `alpha`: Optimized alpha parameter
+- `sigma`: Optimized sigma parameter
+- `eta`: Optimized eta parameter
+- `zeta`: Optimized zeta parameter
 
-### output format：
+## Dataset
 
-* model table:
+### Instructions
 
-    CREATE TABLE IF NOT EXISTS trip_ad_roam_output
-    
-    (
-        demand_hash_id   BIGINT,
-        
-        alpha            DOUBLE,
-        
-        sigma            DOUBLE,
-        
-        eta              double,
-        
-        zeta             double
-        
-    );
+The dataset used for this project is shared via Baidu Netdisk.
 
-## DataSet
-### instuction 
+- Link: https://pan.baidu.com/s/1othj1qrTFBR6nCNd-Ogjlw?pwd=tx6f 
+- Access Code: tx6f
 
-Datset shared through Baidu Netdisk.
+### Format
 
-Link: https://pan.baidu.com/s/1othj1qrTFBR6nCNd-Ogjlw?pwd=tx6f 
+The dataset is structured as follows:
 
-code：tx6f
-
-### format
-
-column[0]: user_id. int type
-
-column[1]: query_id. int type
-
-column[2]: The source of each sample(0:advertising. 1:organic). list type
-
-column[3]: The label of each sample. list type
-
-column[4:]: the side info [itemID, categoryID, brandID, vendorID, priceID, display_count, click_count, budget and min_ROI] of each sample. list type
-
-column[5]: user_category_id. int type
-
-column[6]: timestamp. int type
+- Column 0: user_id (int)
+- Column 1: query_id (int)
+- Column 2: Sample source (list, 0: advertising, 1: organic)
+- Column 3: Sample label (list)
+- Columns 4+: Side information [itemID, categoryID, brandID, vendorID, priceID, display_count, click_count, budget, and min_ROI] for each sample (list)
+- Column 5: user_category_id (int)
+- Column 6: timestamp (int)
 
 ## Note
 
-This is a repository accompanying the paper titled "ROI Constrained Optimal Online Allocation in Sponsored Search".
+This repository accompanies the research paper titled "ROI Constrained Optimal Online Allocation in Sponsored Search". It provides the implementation of the ROAM model and the necessary resources to reproduce the results presented in the paper.
+
+For any questions or issues, please open an issue in this repository or contact the authors directly.
