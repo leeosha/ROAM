@@ -14,8 +14,12 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 ## Installation
 
 * xdl
+  
+https://github.com/alibaba/x-deeplearning
 
 * tensorflow
+
+https://github.com/tensorflow/tensorflow
 
 ## Usage
 
@@ -115,9 +119,11 @@ Sponsored search is crucial for e-commerce revenue, requiring a balance between 
 ## DataSet
 ### instuction 
 
-通过百度网盘分享的文件：数据集
-链接：https://pan.baidu.com/s/1othj1qrTFBR6nCNd-Ogjlw?pwd=tx6f 
-提取码：tx6f
+Datset shared through Baidu Netdisk.
+
+Link: https://pan.baidu.com/s/1othj1qrTFBR6nCNd-Ogjlw?pwd=tx6f 
+
+code：tx6f
 
 ### format
 
