@@ -23,6 +23,13 @@ https://github.com/tensorflow/tensorflow
 
 ## Usage
 
+### run code
+
+* Please install related according to installation
+* dataset format according to Dataset
+* Run the main.py 
+
+
 ### input format：
 
 * demand table：
